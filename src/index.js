@@ -37,15 +37,16 @@ containToggle.addEventListener('click',e=>{
 
    if(e.target.tagName.toLowerCase()==='button'&& e.target.value==='F' )
 {  const tempCelcius = Number(valueSelected.value)
-   
   let farenheight 
   farenheight = ((tempCelcius*(9/5))+32).toFixed(2)
   selected.innerHTML = farenheight
+  document.getElementById('celscius').innerHTML = "F"
   // console.log( tempCelcius)
 
 }
 if(e.target.tagName.toLowerCase()==='button'&& e.target.value==='C' ){
 selected.innerHTML = valueSelected.value
+document.getElementById('celscius').innerHTML = "C"
 }
 })
 function processData(data){
@@ -55,7 +56,9 @@ const humidity = document.createElement('p')
 const windSpeed = document.createElement('p')
 const clouds = document.createElement('p')
 
- temperature.innerHTML = `<span id="current-temp">${(Number(data.main.temp)-273).toFixed(2)}</span><sup>O</sup>C`
+ temperature.innerHTML = `<span id="current-temp">
+ ${(Number(data.main.temp)-273).toFixed(2)}
+ </span><sup>O</sup><span id="celscius">C</span>`
  temperature.id ='temp'
  temperature.value =(Number(data.main.temp)-273).toFixed(2)
 //  temperature.id = 'current-temp'
@@ -79,7 +82,3 @@ submit.addEventListener('click', e=>{
 
   
 })
-/* <h1 class="name" id="name"></h1>
-<p class="temp"></p>
-<p class="clouds"></p>
-<p class="desc"></p> */

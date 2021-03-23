@@ -10,9 +10,10 @@ body{
 }
 
 .input{
-  text-align: center;
-  margin: 100px auto;
+  /* text-align: center;
+  margin: 100px auto; */
 }
+/* 
 
 input[type="submit"]{
   padding: 15px 30px;
@@ -61,4 +62,4 @@ input[type="submit"]{
   text-align: center;
   margin:40px 0;
   font-size:20px;
-}
+} */

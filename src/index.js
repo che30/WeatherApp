@@ -80,22 +80,20 @@ function addBackground(data) {
 }
 function processData(data) {
   if (data.cod !== '404') {
+    document.querySelector('section p').innerHTML =''
     const temperature = document.createElement('p');
     const humidity = document.createElement('p');
     const windSpeed = document.createElement('p');
     const clouds = document.createElement('p');
-    if (document.querySelector('.tempOne')) {
-      document.querySelector('.tempOne').innerHTML = '';
-    }
-    if (document.querySelector('.humidOne')) {
-      document.querySelector('.humidOne').innerHTML = '';
-    }
-    if (document.querySelector('.windOne')) {
-      document.querySelector('.windOne').innerHTML = '';
-    }
-    if (document.querySelector('.cloudOne')) {
-      document.querySelector('.cloudOne').innerHTML = '';
-    }
+   
+     if( document.querySelector('section  .same')){
+       const allSame =document.getElementsByClassName('same')
+       let i=0
+       while (i<allSame.length ){
+        allSame[i].innerHTML =''
+        i+=1
+       }
+     }
     temperature.innerHTML = `<span id="current-temp">
  ${(Number(data.main.temp) - 273).toFixed(2)}
  </span><sup>o</sup><span id="celscius">C</span>`;
@@ -106,10 +104,10 @@ function processData(data) {
     humidity.innerHTML = `${data.main.humidity}%`;
     windSpeed.innerHTML = `${data.wind.speed}M/H`;
     clouds.innerHTML = data.weather[0].description;
-    temperature.classList.add('tempOne');
-    humidity.classList.add('humidOne');
-    windSpeed.classList.add('windOne');
-    clouds.classList.add('cloudOne');
+    temperature.classList.add('same');
+    humidity.classList.add('same');
+    windSpeed.classList.add('same');
+    clouds.classList.add('same');
 
     temperatureTitle.appendChild(temperature);
     cloudsTitle.appendChild(clouds);

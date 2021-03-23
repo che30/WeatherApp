@@ -1,0 +1,24 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "Nunito",sans-serif;
+  background: #f8f8f8;
+}
+h1{
+  color: #f54272
+}
+.input_text{
+  border-radius: 10px;
+  border: 2px solid blue;
+}
+.rounded-circle{
+  background-color: black;
+  color: white;
+}
+section{
+  font-size: 2rem;
+}

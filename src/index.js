@@ -80,26 +80,25 @@ function addBackground(data) {
 }
 function processData(data) {
   if (data.cod !== '404') {
-    document.querySelector('section p').innerHTML =''
+    document.querySelector('section p').innerHTML = '';
     const temperature = document.createElement('p');
     const humidity = document.createElement('p');
     const windSpeed = document.createElement('p');
     const clouds = document.createElement('p');
-   
-     if( document.querySelector('section  .same')){
-       const allSame =document.getElementsByClassName('same')
-       let i=0
-       while (i<allSame.length ){
-        allSame[i].innerHTML =''
-        i+=1
-       }
-     }
+
+    if (document.querySelector('section  .same')) {
+      const allSame = document.getElementsByClassName('same');
+      let i = 0;
+      while (i < allSame.length) {
+        allSame[i].innerHTML = '';
+        i += 1;
+      }
+    }
     temperature.innerHTML = `<span id="current-temp">
  ${(Number(data.main.temp) - 273).toFixed(2)}
  </span><sup>o</sup><span id="celscius">C</span>`;
     temperature.id = 'temp';
     temperature.value = (Number(data.main.temp) - 273).toFixed(2);
-    //  temperature.id = 'current-temp'
     temperature.value = (Number(data.main.temp) - 273).toFixed(2);
     humidity.innerHTML = `${data.main.humidity}%`;
     windSpeed.innerHTML = `${data.wind.speed}M/H`;
@@ -118,6 +117,9 @@ function processData(data) {
     const notFound = document.querySelector('.not-found');
     notFound.classList.remove('d-none');
     notFound.classList.add('d-block');
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
   }
 }
 submit.addEventListener('click', e => {
